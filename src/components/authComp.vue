@@ -1,3 +1,6 @@
+<script>
+const provider = new GoogleAuthProvider()
+</script>
 <script setup>
 import { ref, onMounted } from 'vue'
 import {
@@ -10,7 +13,6 @@ import {
 import { firebaseApp } from '@/firebase_config'
 
 const auth = getAuth(firebaseApp)
-const provider = new GoogleAuthProvider()
 
 // reactive user
 const user = ref(null)
