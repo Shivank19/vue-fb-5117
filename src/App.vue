@@ -1,15 +1,15 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-
-
-function generateRandomId() {
-  return Math.floor(Math.random() * 100) + 1;
+import AuthComp from './components/authComp.vue'
+function generateRandomId(limit) {
+  return Math.floor(Math.random() * limit) + 1
 }
 </script>
 
 <template>
   <header>
+    <AuthComp />
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
@@ -18,9 +18,9 @@ function generateRandomId() {
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/testing">Test</RouterLink>
-        <RouterLink :to="`/testing/${generateRandomId()}`">Random parameter</RouterLink>
-
-
+        <RouterLink :to="`/testing/${generateRandomId(100)}`">Random parameter</RouterLink>
+        <RouterLink to="/cards">FlashCards Firestore</RouterLink>
+        <RouterLink :to="`/cards/fc${generateRandomId(5)}`">Card with routing</RouterLink>
       </nav>
     </div>
   </header>

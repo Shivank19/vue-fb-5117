@@ -3,6 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import TestingView from '../views/TestView.vue'
 import TestParam from '@/views/TestParam.vue'
+import FlashCards from '@/components/FlashCards.vue'
+import FlashCardRouting from '@/components/FlashCardRouting.vue'
+import NotFound from '@/components/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,13 +26,28 @@ const router = createRouter({
     {
       path: '/testing',
       name: 'testing',
-      component: TestingView
+      component: TestingView,
     },
 
     {
       path: '/testing/:id',
       name: 'testParam',
-      component: TestParam
+      component: TestParam,
+    },
+    {
+      path: '/cards',
+      name: 'cards',
+      component: FlashCards,
+    },
+    {
+      path: '/cards/:id',
+      name: 'card_with_id',
+      component: FlashCardRouting,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: '404',
+      component: NotFound,
     },
   ],
 })
