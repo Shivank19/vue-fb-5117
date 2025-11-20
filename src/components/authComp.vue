@@ -19,7 +19,7 @@ const user = ref(null)
 onMounted(() => {
   onAuthStateChanged(auth, (firebaseUser) => {
     user.value = firebaseUser
-    console.log('Auth state changed:', firebaseUser)
+    // console.log('Auth state changed:', firebaseUser)
   })
 })
 
